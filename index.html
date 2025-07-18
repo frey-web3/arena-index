@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Arena Index</title>
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+
+    <link rel="apple-touch-icon" href="/icon-192x192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Arena Index">
+
+    <script type="module" src="/firebase-auth-config.js"></script>
+
+    <link rel="stylesheet" href="/output.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-black text-slate-100 font-mono min-h-screen flex flex-col">
+
+    <div id="navigation-container"></div>
+
+    <div id="floating-mobile-search-container"></div>
+    <div id="search-overlay-container"></div>
+
+    <div id="floating-favorites-container"></div>
+    <div id="favorites-overlay-container"></div>
+
+    <div id="sidebar-container"></div>
+    <div id="sidebar-overlay-container"></div>
+
+    <div class="h-20 w-full md:h-20"></div>
+
+    <div class="flex-grow w-full max-w-7xl mx-auto flex flex-col px-3 sm:px-6 md:px-6">
+        <div class="flex items-center w-full mx-auto pt-1 mb-3">
+            <h2 class="bg-transparent text-white font-bold inline-flex items-center mr-2 text-lg">
+                <i class="fa-solid fa-coins text-lg mr-2 text-red-400"></i> Trending Tokens </h2>
+            <button class="bg-transparent border border-gray-700 hover:border-red-400 text-gray-400 hover:text-red-400 font-semibold py-1 px-3 rounded-lg ml-auto text-sm" onclick="window.location.href='/tokens.html'">
+                View All >
+            </button>
+        </div>
+        <section id="trending-tokens-section" class="w-full mx-auto md:mb-3">
+            <div id="trending-tokens-container" class="flex overflow-x-auto pb-4 space-x-3 hide-scrollbar">
+            </div>
+        </section>
+
+        <div class="flex items-center w-full mx-auto pt-1 mb-3">
+            <h2 class="bg-transparent text-white font-bold inline-flex items-center mr-2 text-lg">
+                <i class="fa-solid fa-cube text-lg mr-2 text-blue-400"></i> Trending Apps
+            </h2>
+            <button class="bg-transparent border border-gray-700 hover:border-red-400 text-gray-400 hover:text-red-400 font-semibold py-1 px-3 rounded-lg ml-auto text-sm" onclick="window.location.href='/projects.html'">
+                View All >
+            </button>
+        </div>
+        <section id="trending-apps-section" class="w-full mx-auto md:mb-3">
+            <div id="trending-apps-container" class="flex overflow-x-auto pb-4 space-x-3 hide-scrollbar">
+            </div>
+        </section>
+
+        <div class="flex items-center w-full mx-auto pt-1 mb-3">
+            <h2 class="bg-transparent text-white font-bold inline-flex items-center mr-2 text-lg">
+                <i class="fa-solid fa-gem text-lg mr-2 text-green-400"></i> Trending NFTs
+            </h2>
+            <button class="bg-transparent border border-gray-700 hover:border-red-400 text-gray-400 hover:text-red-400 font-semibold py-1 px-3 rounded-lg ml-auto text-sm" onclick="window.location.href='/projects.html'">
+                View All >
+            </button>
+        </div>
+        <section id="trending-nfts-section" class="w-full mx-auto md:mb-3">
+            <div id="trending-nfts-container" class="flex overflow-x-auto pb-4 space-x-3 hide-scrollbar">
+            </div>
+        </section>
+
+        <div class="flex items-center w-full mx-auto pt-1 mb-3">
+            <h2 class="bg-transparent text-white font-bold inline-flex items-center mr-2 text-lg">
+                <i class="fa-solid fa-gamepad text-lg mr-2 text-yellow-400"></i> Trending Games
+            </h2>
+            <button class="bg-transparent border border-gray-700 hover:border-red-400 text-gray-400 hover:text-red-400 font-semibold py-1 px-3 rounded-lg ml-auto text-sm" onclick="window.location.href='/projects.html'">
+                View All >
+            </button>
+        </div>
+        <section id="trending-games-section" class="w-full mx-auto md:mb-3">
+            <div id="trending-games-container" class="flex overflow-x-auto pb-4 space-x-3 hide-scrollbar">
+            </div>
+        </section>
+
+        <div class="flex items-center w-full mx-auto pt-1 mb-3">
+            <h2 class="bg-transparent text-white font-bold inline-flex items-center mr-2 text-lg">
+                <i class="fa-solid fa-users text-lg mr-2 text-purple-400"></i> Trending Users
+            </h2>
+            <button class="bg-transparent border border-gray-700 hover:border-red-400 text-gray-400 hover:text-red-400 font-semibold py-1 px-3 rounded-lg ml-auto text-sm" onclick="window.location.href='/projects.html'">
+                View All >
+            </button>
+        </div>
+        <section id="trending-users-section" class="w-full mx-auto md:mb-3">
+            <div id="trending-users-container" class="flex overflow-x-auto pb-4 space-x-3 hide-scrollbar">
+            </div>
+        </section>
+
+        <div class="flex items-center w-full mx-auto pt-1 mb-3">
+            <h2 class="bg-transparent text-white font-bold inline-flex items-center text-lg">
+                <i class="fa-solid fa-newspaper text-lg mr-2 text-orange-400"></i> Latest News
+            </h2>
+        </div>
+        <section id="latest-news-section" class="w-full mx-auto md:mb-3">
+            <div id="latest-news-container" class="flex overflow-x-auto pb-4 space-x-3 hide-scrollbar">
+            </div>
+        </section>
+
+        <div class="flex items-center w-full mx-auto pt-1 mb-3">
+            <h2 class="bg-transparent text-white font-bold inline-flex items-center text-lg">
+                <i class="fa-solid fa-video text-lg mr-2 text-pink-400"></i> Latest Videos
+            </h2>
+        </div>
+        <section id="latest-videos-section" class="w-full mx-auto md:mb-3">
+            <div id="latest-videos-container" class="flex overflow-x-auto pb-4 space-x-3 hide-scrollbar">
+            </div>
+        </section>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script type="module" src="/navigation.js"></script>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

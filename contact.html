@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Arena Index - Contact</title>
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="apple-touch-icon" href="/icon-192x192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Arena Index">
+
+    <script type="module" src="/firebase-auth-config.js"></script>
+
+    <!-- Tailwind CSS CLI for styling -->
+    <link rel="stylesheet" href="/output.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-black text-slate-100 font-mono min-h-screen flex flex-col">
+
+    <!-- Navigation will be injected here by navigation.js -->
+    <div id="navigation-container"></div>
+
+    <!-- Floating mobile search and overlay will be injected here by navigation.js -->
+    <div id="floating-mobile-search-container"></div>
+    <div id="search-overlay-container"></div>
+
+    <!-- Floating favorites and overlay will be injected here by navigation.js -->
+    <div id="floating-favorites-container"></div>
+    <div id="favorites-overlay-container"></div>
+
+    <!-- Sidebar will be injected here by navigation.js -->
+    <div id="sidebar-container"></div>
+    <div id="sidebar-overlay-container"></div>
+
+    <!-- Spacer for fixed navigation - Height adjusted for negative top margin effect -->
+    <div class="h-20 w-full md:h-20"></div>
+
+    <div class="flex-grow w-full max-w-5xl mx-auto flex flex-col px-4 sm:px-6 md:px-6 mb-6">
+        <!-- Contact page content will be placed here -->
+        <h1 class="text-2xl font-bold text-white mb-4 pt-4 text-center">Contact Us</h1>
+        <div id="contact-content" class="bg-black bg-opacity-70 rounded-lg shadow-lg p-6 border border-gray-700">
+            <!-- Updated contact content -->
+            <h2 class="text-xl font-semibold text-white mb-2">Arena Index Contact</h2>
+            <p class="text-gray-300 mb-4">We're here to help! If you have any questions, feedback, or need assistance, please don't hesitate to reach out to us. You can contact us directly via email:</p>
+            <p class="text-gray-300 mb-4"><strong>Email:</strong> <a href="mailto:chainlate@gmail.com" class="text-[#e84142] hover:underline">chainlate@gmail.com</a></p>
+
+            <h2 class="text-xl font-semibold text-white mt-6 mb-2">Important Links</h2>
+            <p class="text-gray-300 mb-2">For more information about how we handle your data and our service guidelines, please visit:</p>
+            <ul class="list-disc list-inside text-gray-300 ml-4">
+                <li><a href="/privacy.html" class="text-[#e84142] hover:underline">Privacy Policy</a></li>
+                <li><a href="/terms.html" class="text-[#e84142] hover:underline">Terms of Service</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer will be injected here by navigation.js -->
+    <div id="footer-container"></div>
+
+    <!-- Navigation script -->
+    <script type="module" src="/navigation.js"></script>
+</body>
+</html>

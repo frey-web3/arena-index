@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Submit Project - Arena Index</title>
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+
+    <link rel="apple-touch-icon" href="/icon-192x192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Arena Index">
+
+    <script type="module" src="/firebase-auth-config.js"></script>
+
+    <link rel="stylesheet" href="/output.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Removed jsPDF and html2canvas scripts -->
+</head>
+<body class="bg-black text-slate-100 font-mono min-h-screen flex flex-col">
+
+    <div id="navigation-container"></div>
+
+    <div id="floating-mobile-search-container"></div>
+    <div id="search-overlay-container"></div>
+
+    <div id="floating-favorites-container"></div>
+    <div id="favorites-overlay-container"></div>
+
+    <div id="sidebar-container"></div>
+    <div id="sidebar-overlay-container"></div>
+
+    <div class="h-20 w-full md:h-20"></div>
+
+    <div class="flex-grow w-full max-w-5xl mx-auto flex flex-col px-4 sm:px-6 md:px-6 mb-6">
+        <div id="submit-project-form-area" class="bg-black bg-opacity-70 rounded-lg shadow-lg border border-gray-700 p-6 custom-scrollbar-red">
+            <h1 class="text-3xl font-bold text-white mb-6 text-center">Submit Your Project to Arena Index</h1>
+
+            <div id="auth-status" class="text-center mb-4">
+                <p id="user-info" class="text-white text-lg"></p>
+                <button id="google-sign-in" class="px-6 py-2 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition duration-300">
+                    Sign in with Google
+                </button>
+                <button id="google-sign-out" class="px-6 py-2 bg-red-600 text-white font-bold rounded-md hover:bg-red-700 transition duration-300 hidden mt-2">
+                    Sign out
+                </button>
+            </div>
+
+            <form id="projectForm" class="space-y-6 hidden"> <!-- Form hidden until authenticated -->
+                <div>
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Project Information</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="projectName" class="block text-sm font-medium text-slate-300 mb-1">Project Name <span class="text-red-500">*</span></label>
+                            <input type="text" id="projectName" name="projectName" required
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                        </div>
+                        <div>
+                            <label for="projectLogo" class="block text-sm font-medium text-slate-300 mb-1">Project Logo Link <span class="text-red-500">*</span></label>
+                            <input type="url" id="projectLogo" name="projectLogo" required
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                        </div>
+                        <div>
+                            <label for="launchDate" class="block text-sm font-medium text-slate-300 mb-1">Launch Date <span class="text-red-500">*</span></label>
+                            <input type="date" id="launchDate" name="launchDate" required
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                        </div>
+                        <div>
+                            <label for="category" class="block text-sm font-medium text-slate-300 mb-1">Category <span class="text-red-500">*</span></label>
+                            <select id="category" name="category" required
+                                    class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:border-theme-red custom-select-arrow">
+                                <option value="">Select Category</option>
+                                <option value="DeFi">DeFi</option>
+                                <option value="NFT">NFT</option>
+                                <option value="GameFi">GameFi</option>
+                                <option value="Tooling">Tooling</option>
+                                <option value="Infrastructure">Infrastructure</option>
+                                <option value="SocialFi">SocialFi</option>
+                                <option value="Aggregator">Aggregator</option>
+                                <option value="Memes">Memes</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="projectDescription" class="block text-sm font-medium text-slate-300 mb-1">Project Description <span class="text-red-500">*</span></label>
+                            <textarea id="projectDescription" name="projectDescription" rows="4" required
+                                      class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Token Information</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="tokenName" class="block text-sm font-medium text-slate-300 mb-1">Token Name <span class="text-red-500">*</span></label>
+                            <input type="text" id="tokenName" name="tokenName" required
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                        </div>
+                        <div>
+                            <label for="tokenSymbol" class="block text-sm font-medium text-slate-300 mb-1">Token Symbol <span class="text-red-500">*</span></label>
+                            <input type="text" id="tokenSymbol" name="tokenSymbol" required
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="tokenAddress" class="block text-sm font-medium text-slate-300 mb-1">Token Contract Address <span class="text-red-500">*</span></label>
+                            <input type="text" id="tokenAddress" name="tokenAddress" required
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red"
+                                   placeholder="0x...">
+                        </div>
+                        <div>
+                            <label for="tokenExplorerLink" class="block text-sm font-medium text-slate-300 mb-1">Token Explorer Link <span class="text-red-500">*</span></label>
+                            <input type="url" id="tokenExplorerLink" name="tokenExplorerLink" required
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                        </div>
+                        <div>
+                            <label for="treasuryAddress" class="block text-sm font-medium text-slate-300 mb-1">Treasury Address (Optional)</label>
+                            <input type="text" id="treasuryAddress" name="treasuryAddress"
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red"
+                                   placeholder="0x...">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Team Information</h2>
+                    <div id="teamMembers" class="space-y-4">
+                        <div class="team-member-group grid grid-cols-1 md:grid-cols-3 gap-4 border border-gray-700 p-4 rounded-md relative">
+                            <button type="button" class="remove-team-member absolute top-2 right-2 text-red-500 hover:text-red-700 text-lg hidden" title="Remove Team Member">
+                                <i class="fas fa-times-circle"></i>
+                            </button>
+                            <div>
+                                <label for="teamMemberName_0" class="block text-sm font-medium text-slate-300 mb-1">Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="teamMemberName_0" name="teamMemberName" required
+                                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                            </div>
+                            <div>
+                                <label for="teamMemberRole_0" class="block text-sm font-medium text-slate-300 mb-1">Role <span class="text-red-500">*</span></label>
+                                <input type="text" id="teamMemberRole_0" name="teamMemberRole" required
+                                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                            </div>
+                            <div>
+                                <label for="teamMemberTwitter_0" class="block text-sm font-medium text-slate-300 mb-1">Profile Link <span class="text-red-500">*</span></label>
+                                <input type="url" id="teamMemberTwitter_0" name="teamMemberTwitter" required
+                                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="addTeamMember" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">
+                        Add Another Team Member
+                    </button>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Social Links</h2>
+                    <div id="socialLinks" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="websiteUrl" class="block text-sm font-medium text-slate-300 mb-1">Website Link <span class="text-red-500">*</span></label>
+                                <input type="url" id="websiteUrl" name="websiteUrl" required
+                                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                            </div>
+                            <div>
+                                <label for="twitterUrl" class="block text-sm font-medium text-slate-300 mb-1">Twitter Link <span class="text-red-500">*</span></label>
+                                <input type="url" id="twitterUrl" name="twitterUrl" required
+                                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                            </div>
+                            <div>
+                                <label for="telegramUrl" class="block text-sm font-medium text-slate-300 mb-1">Telegram Link</label>
+                                <input type="url" id="telegramUrl" name="telegramUrl"
+                                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                            </div>
+                            <div>
+                                <label for="discordUrl" class="block text-sm font-medium text-slate-300 mb-1">Discord Link</label>
+                                <input type="url" id="discordUrl" name="discordUrl"
+                                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                            </div>
+                            <div>
+                                <label for="mediumUrl" class="block text-sm font-medium text-slate-300 mb-1">Medium Link</label>
+                                <input type="url" id="mediumUrl" name="mediumUrl"
+                                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                            </div>
+                            <div>
+                                <label for="githubUrl" class="block text-sm font-medium text-slate-300 mb-1">GitHub Link</label>
+                                <input type="url" id="githubUrl" name="githubUrl"
+                                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                            </div>
+                        </div>
+                        <div id="additionalSocialLinks" class="space-y-4 mt-4">
+                            <label class="block text-sm font-medium text-slate-300 mb-1">Additional Social Links</label>
+                            </div>
+                        <button type="button" id="addSocialLink" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">
+                            Add Another Social Link
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Additional Links</h2>
+                    <div id="articleLinks" class="space-y-4 mb-4">
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Article Links</label>
+                        <div class="article-link-group flex gap-2 link-group">
+                            <input type="url" name="articleLink"
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red"
+                                   placeholder="">
+                            <button type="button" class="remove-link-btn px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300 hidden">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" id="addArticleLink" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">
+                        Add Another Article Link
+                    </button>
+
+                    <div id="videoLinks" class="space-y-4 mt-6 mb-4">
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Video Links</label>
+                        <div class="video-link-group flex gap-2 link-group">
+                            <input type="url" name="videoLink"
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red"
+                                   placeholder="">
+                            <button type="button" class="remove-link-btn px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300 hidden">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" id="addVideoLink" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">
+                        Add Another Video Link
+                    </button>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Support Us</h2>
+                    <p class="text-slate-300 mb-4">
+                        Arena Index is a community-driven discovery hub on Avalanche. Support us by sending any AVAX token to our treasury address below:
+                    </p>
+                    <div class="flex items-center gap-4 mb-2"> <!-- Reduced mb-4 to mb-2 for spacing -->
+                        <input type="text" id="treasuryWalletAddress" name="treasuryWalletAddressDisplay" value="0xfb0a20c2848b4526492721cd8473c3a01692486f" readonly
+                               class="p-3 bg-gray-800 border border-gray-600 rounded-md text-theme-red font-bold break-all focus:outline-none w-full md:w-1/2">
+                        <button type="button" id="copyAddressButton" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">
+                            Copy Address
+                        </button>
+                    </div>
+                    <!-- New text for treasury address confirmation -->
+                    <p class="text-xs italic text-slate-400 mb-4">
+                        Confirm our treasury address by DMing us on X (<a href="https://x.com/TheArenaIndex" target="_blank" class="text-blue-400 hover:underline">x.com/TheArenaIndex</a>) if necessary.
+                    </p>
+                    <div>
+                        <label for="transactionHash" class="block text-sm font-medium text-slate-300 mb-1">Transaction Hash (Optional)</label>
+                        <input type="text" id="transactionHash" name="transactionHash"
+                               class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red"
+                               placeholder="Enter your Txn Hash here">
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Your Contact Information</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="yourName" class="block text-sm font-medium text-slate-300 mb-1">Your Name <span class="text-red-500">*</span></label>
+                            <input type="text" id="yourName" name="yourName" required
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                        </div>
+                        <div>
+                            <label for="yourEmail" class="block text-sm font-medium text-slate-300 mb-1">Your Email <span class="text-red-500">*</span></label>
+                            <input type="email" id="yourEmail" name="yourEmail" required
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center">
+                    <button type="submit" id="submitButton"
+                            class="px-8 py-3 bg-theme-red text-white font-bold rounded-md shadow-lg hover:bg-red-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50">
+                        <span id="buttonText">Submit Project</span>
+                        <i id="loadingSpinner" class="fas fa-spinner fa-spin ml-2"></i> <!-- Removed 'hidden' class -->
+                    </button>
+                </div>
+            </form>
+            <div id="messageBox" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl text-center max-w-md mx-auto">
+                    <p id="messageText" class="text-white text-lg mb-4"></p>
+                    <!-- Add textarea to copy email content -->
+                    <textarea id="emailContentToCopy" class="w-full h-32 bg-gray-700 text-white p-2 rounded-md mb-4 hidden" readonly></textarea>
+                    <!-- Add button to copy email content -->
+                    <button id="copyEmailContent" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 hidden mb-2">Copy Email Content</button>
+                    <button id="closeMessageBox" class="px-4 py-2 bg-theme-red text-white rounded-md hover:bg-red-700">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script type="module">
+        // Import necessary Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        // Added setDoc to the import list
+        import { getFirestore, collection, addDoc, updateDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js"; 
+
+        // Firebase configuration and initialization
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const provider = new GoogleAuthProvider();
+
+        let userId = null;
+
+        const projectForm = document.getElementById('projectForm');
+        const googleSignInButton = document.getElementById('google-sign-in');
+        const googleSignOutButton = document.getElementById('google-sign-out');
+        const userInfoDisplay = document.getElementById('user-info');
+        const submitButton = document.getElementById('submitButton'); // Get submit button
+        const loadingSpinner = document.getElementById('loadingSpinner'); // Get loading spinner
+        const buttonText = document.getElementById('buttonText'); // Get the span for button text
+
+        // Get references to the new elements
+        const emailContentToCopy = document.getElementById('emailContentToCopy');
+        const copyEmailContentButton = document.getElementById('copyEmailContent');
+
+        // Function to show custom message box
+        function showMessageBox(message, showCopyOptions = false) {
+            const messageBox = document.getElementById('messageBox');
+            const messageText = document.getElementById('messageText');
+            messageBox.classList.remove('hidden'); // Show the message box
+            messageText.textContent = message;
+
+            if (showCopyOptions) {
+                emailContentToCopy.classList.remove('hidden');
+                copyEmailContentButton.classList.remove('hidden');
+            } else {
+                emailContentToCopy.classList.add('hidden');
+                copyEmailContentButton.classList.add('hidden');
+            }
+        }
+
+        // Function to close custom message box
+        document.getElementById('closeMessageBox').addEventListener('click', () => {
+            document.getElementById('messageBox').classList.add('hidden');
+            // Ensure copy options are hidden when the message box is closed
+            emailContentToCopy.classList.add('hidden');
+            copyEmailContentButton.classList.add('hidden');
+        });
+
+        // Google Sign-in
+        googleSignInButton.addEventListener('click', async () => {
+            try {
+                await signInWithPopup(auth, provider);
+            } catch (error) {
+                console.error("Error during Google Sign-in:", error);
+                showMessageBox("Error during Google Sign-in. Please try again.");
+            }
+        });
+
+        // Google Sign-out
+        googleSignOutButton.addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+            } catch (error) {
+                console.error("Error during Google Sign-out:", error);
+                showMessageBox("Error during Google Sign-out. Please try again.");
+            }
+        });
+
+        // Auth state change listener
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                userId = user.uid;
+                userInfoDisplay.textContent = `Signed in as: ${user.displayName || user.email}`;
+                googleSignInButton.classList.add('hidden');
+                googleSignOutButton.classList.remove('hidden');
+                projectForm.classList.remove('hidden'); // Show form when authenticated
+                // Pre-fill name and email if available from Google account
+                document.getElementById('yourName').value = user.displayName || '';
+                document.getElementById('yourEmail').value = user.email || '';
+            } else {
+                userId = null;
+                userInfoDisplay.textContent = "Please sign in to submit a project.";
+                googleSignInButton.classList.remove('hidden');
+                googleSignOutButton.classList.add('hidden');
+                projectForm.classList.add('hidden'); // Hide form when not authenticated
+            }
+        });
+
+        // Add Team Member functionality
+        let teamMemberCount = 1;
+        document.getElementById('addTeamMember').addEventListener('click', () => {
+            const teamMembersContainer = document.getElementById('teamMembers');
+            const newMemberGroup = document.createElement('div');
+            newMemberGroup.className = 'team-member-group grid grid-cols-1 md:grid-cols-3 gap-4 border border-gray-700 p-4 rounded-md relative';
+            newMemberGroup.innerHTML = `
+                <button type="button" class="remove-team-member absolute top-2 right-2 text-red-500 hover:text-red-700 text-lg" title="Remove Team Member">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+                <div>
+                    <label for="teamMemberName_${teamMemberCount}" class="block text-sm font-medium text-slate-300 mb-1">Name <span class="text-red-500">*</span></label>
+                    <input type="text" id="teamMemberName_${teamMemberCount}" name="teamMemberName" required
+                           class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                </div>
+                <div>
+                    <label for="teamMemberRole_${teamMemberCount}" class="block text-sm font-medium text-slate-300 mb-1">Role <span class="text-red-500">*</span></label>
+                    <input type="text" id="teamMemberRole_${teamMemberCount}" name="teamMemberRole" required
+                           class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                </div>
+                <div>
+                    <label for="teamMemberTwitter_${teamMemberCount}" class="block text-sm font-medium text-slate-300 mb-1">Profile Link <span class="text-red-500">*</span></label>
+                    <input type="url" id="teamMemberTwitter_${teamMemberCount}" name="teamMemberTwitter" required
+                           class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red">
+                </div>
+            `;
+            teamMembersContainer.appendChild(newMemberGroup);
+            teamMemberCount++;
+            addRemoveTeamMemberListener(newMemberGroup.querySelector('.remove-team-member'));
+        });
+
+        // Function to add event listener for removing team members
+        function addRemoveTeamMemberListener(button) {
+            button.addEventListener('click', (event) => {
+                event.target.closest('.team-member-group').remove();
+            });
+        }
+
+        // Hide the remove button for the first team member
+        document.querySelector('.team-member-group .remove-team-member').classList.add('hidden');
+
+        // Function to add new link field
+        function addLinkField(containerId, inputName, placeholderText = '') {
+            const container = document.getElementById(containerId);
+            const newLinkGroup = document.createElement('div');
+            newLinkGroup.className = 'flex gap-2 link-group'; // Added 'link-group' class
+            newLinkGroup.innerHTML = `
+                <input type="url" name="${inputName}"
+                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-theme-red"
+                       placeholder="${placeholderText}">
+                <button type="button" class="remove-link-btn px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300">
+                    <i class="fas fa-minus"></i>
+                </button>
+            `;
+            container.appendChild(newLinkGroup);
+            addRemoveLinkListener(newLinkGroup.querySelector('.remove-link-btn'));
+            updateRemoveButtonVisibility(containerId);
+        }
+
+        // Function to add event listener for removing links
+        function addRemoveLinkListener(button) {
+            button.addEventListener('click', (event) => {
+                event.target.closest('.link-group').remove();
+                updateRemoveButtonVisibility(event.target.closest('.link-group').parentNode.id);
+            });
+        }
+
+        // Function to update remove button visibility
+        function updateRemoveButtonVisibility(containerId) {
+            const container = document.getElementById(containerId);
+            const linkGroups = container.querySelectorAll('.link-group');
+            linkGroups.forEach((group, index) => {
+                const removeButton = group.querySelector('.remove-link-btn');
+                if (index === 0) { // Always hide the remove button for the first link
+                    removeButton.classList.add('hidden');
+                } else { // Show remove button for subsequent links
+                    removeButton.classList.remove('hidden');
+                }
+            });
+        }
+
+        document.getElementById('addArticleLink').addEventListener('click', () => addLinkField('articleLinks', 'articleLink', ''));
+        document.getElementById('addVideoLink').addEventListener('click', () => addLinkField('videoLinks', 'videoLink', ''));
+        document.getElementById('addSocialLink').addEventListener('click', () => addLinkField('additionalSocialLinks', 'additionalSocialLink', 'Social Link'));
+
+
+        // Initialize remove button visibility for initial fields
+        document.addEventListener('DOMContentLoaded', () => {
+            updateRemoveButtonVisibility('articleLinks');
+            updateRemoveButtonVisibility('videoLinks');
+            updateRemoveButtonVisibility('additionalSocialLinks'); // For additional social links
+        });
+
+        // Copy treasury address button functionality
+        document.getElementById('copyAddressButton').addEventListener('click', async () => {
+            const treasuryAddress = document.getElementById('treasuryWalletAddress').value; // Changed to .value
+            try {
+                // Using document.execCommand('copy') because navigator.clipboard.writeText() might not work in an iFrame
+                const textarea = document.createElement('textarea');
+                textarea.value = treasuryAddress;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showMessageBox("Wallet address copied successfully!");
+            } catch (err) {
+                console.error('Failed to copy address: ', err);
+                showMessageBox("Failed to copy address. Please try again manually.");
+            }
+        });
+
+
+        // Email Submission
+        document.getElementById('projectForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            if (!userId) {
+                showMessageBox("Please sign in with Google to submit the form.");
+                return;
+            }
+
+            // Show loading spinner and disable button
+            submitButton.disabled = true;
+            buttonText.textContent = 'Submitting...'; // Change button text
+            loadingSpinner.style.display = 'inline-block'; // Show spinner
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = {};
+
+            // Collect main form data
+            for (let [key, value] of formData.entries()) {
+                if (!key.startsWith('teamMember') && !key.startsWith('articleLink') && !key.startsWith('videoLink') && !key.startsWith('additionalSocialLink') && key !== 'treasuryWalletAddressDisplay') {
+                    data[key] = value;
+                }
+            }
+
+            // Collect team members
+            const teamMembers = [];
+            const teamMemberGroups = form.querySelectorAll('.team-member-group');
+            teamMemberGroups.forEach(group => {
+                const name = group.querySelector('[name="teamMemberName"]').value;
+                const role = group.querySelector('[name="teamMemberRole"]').value;
+                const twitter = group.querySelector('[name="teamMemberTwitter"]').value;
+                if (name && role) {
+                    teamMembers.push({ name, role, twitter });
+                }
+            });
+            data.teamMembers = teamMembers;
+
+            // Collect article links
+            data.articleLinks = Array.from(form.querySelectorAll('input[name="articleLink"]'))
+                                    .map(input => input.value)
+                                    .filter(url => url);
+
+            // Collect video links
+            data.videoLinks = Array.from(form.querySelectorAll('input[name="videoLink"]'))
+                                   .map(input => input.value)
+                                   .filter(url => url);
+
+            // Collect additional social links
+            data.additionalSocialLinks = Array.from(form.querySelectorAll('input[name="additionalSocialLink"]'))
+                                            .map(input => input.value)
+                                            .filter(url => url);
+
+            // Add treasuryWalletAddress from the input field
+            data.treasuryAddress = document.getElementById('treasuryWalletAddress').value;
+
+
+            console.log('Form Data:', data);
+
+            try {
+                // Generate unique project submission name BEFORE adding to Firestore
+                const projectNameCleaned = data.projectName.replace(/\s+/g, ''); // Remove all spaces
+                const submissionDateFormatted = new Date().toISOString().slice(0, 10).replace(/-/g, ''); // YYYYMMDD
+                const firebaseUniqueId = crypto.randomUUID().substring(0, 8); // Generate a unique ID and take the first 8 characters
+                const uniqueSubmissionName = `${projectNameCleaned}-${submissionDateFormatted}-${firebaseUniqueId}`;
+
+                // Save data to Firestore using the uniqueSubmissionName as the document ID
+                await setDoc(doc(db, `artifacts/${appId}/public/data/projectSubmissions`, uniqueSubmissionName), {
+                    ...data,
+                    submittedAt: new Date(),
+                    userId: userId, // Store the user ID with the submission
+                    uniqueSubmissionName: uniqueSubmissionName // Store the unique name as a field as well
+                });
+                console.log("Document written with ID: ", uniqueSubmissionName);
+
+
+                // Construct email body
+                // Removed the duplicated line for unique submission name
+                let emailBody = `Project Submission Details (ID: ${uniqueSubmissionName})\n\n`;
+                emailBody += `Submitted By: ${data.yourName} (${data.yourEmail})\n\n`;
+
+                emailBody += `Project Information:\n`;
+                emailBody += `  Project Name: ${data.projectName}\n`;
+                emailBody += `  Project Logo Link: ${data.projectLogo}\n`;
+                emailBody += `  Launch Date: ${data.launchDate}\n`;
+                emailBody += `  Category: ${data.category}\n`;
+                emailBody += `  Description: ${data.projectDescription}\n\n`;
+
+                if (data.tokenName) {
+                    emailBody += `Token Information:\n`;
+                    emailBody += `  Token Name: ${data.tokenName}\n`;
+                    emailBody += `  Token Symbol: ${data.tokenSymbol}\n`;
+                    emailBody += `  Token Address: ${data.tokenAddress}\n`;
+                    emailBody += `  Token Explorer Link: ${data.tokenExplorerLink || 'N/A'}\n`;
+                    emailBody += `  Treasury Address: ${data.treasuryAddress || 'N/A'}\n\n`;
+                }
+
+                emailBody += `Team Members:\n`;
+                data.teamMembers.forEach(member => {
+                    emailBody += `  - Name: ${member.name}, Role: ${member.role}, Profile Link: ${member.twitter || 'N/A'}\n`;
+                });
+                emailBody += `\n`;
+
+                emailBody += `Social Links:\n`;
+                emailBody += `  Website Link: ${data.websiteUrl}\n`;
+                emailBody += `  Twitter Link: ${data.twitterUrl}\n`;
+                if (data.telegramUrl) { emailBody += `  Telegram Link: ${data.telegramUrl}\n`; }
+                if (data.discordUrl) { emailBody += `  Discord Link: ${data.discordUrl}\n`; }
+                if (data.mediumUrl) { emailBody += `  Medium Link: ${data.mediumUrl}\n`; }
+                if (data.githubUrl) { emailBody += `  GitHub Link: ${data.githubUrl}\n`; }
+                data.additionalSocialLinks.forEach(link => {
+                    emailBody += `  - Additional Social Link: ${link}\n`;
+                });
+                emailBody += `\n`;
+
+                if (data.articleLinks && data.articleLinks.length > 0) {
+                    emailBody += `Article Links:\n`;
+                    data.articleLinks.forEach(link => {
+                        emailBody += `  - ${link}\n`;
+                    });
+                    emailBody += `\n`;
+                }
+
+                if (data.videoLinks && data.videoLinks.length > 0) {
+                    emailBody += `Video Links:\n`;
+                    data.videoLinks.forEach(link => {
+                        emailBody += `  - ${link}\n`;
+                    });
+                    emailBody += `\n`;
+                }
+
+                if (data.transactionHash) {
+                    emailBody += `Support Information:\n`;
+                    emailBody += `  Transaction Hash: ${data.transactionHash}\n\n`;
+                }
+
+                // Removed window.open for mailto: to disable automatic email client opening
+
+                // Set email copy textarea content and show copy options
+                emailContentToCopy.value = emailBody;
+                showMessageBox(
+                    "Thanks for submitting your project! For a quicker review, kindly copy the details below and email them to chainlate@gmail.com",
+                    true // Indicates that copy options should be displayed
+                );
+                form.reset(); // Clear the form after successful submission
+
+            } catch (error) {
+                console.error("Error during project submission process:", error);
+                let errorMessage = "An unexpected error occurred during submission. Please check the console for more details.";
+                if (error.code && error.code.startsWith('permission')) {
+                    errorMessage = "Error: Permission denied. Please ensure your Firebase security rules allow writing to the database.";
+                } else if (error.message && error.message.includes("Failed to fetch")) {
+                    errorMessage = "Error: Network issue. Please check your internet connection.";
+                }
+                showMessageBox("Error submitting project: " + errorMessage + " Please try again later.");
+            } finally {
+                // Hide loading spinner and re-enable button
+                submitButton.disabled = false;
+                buttonText.textContent = 'Submit Project'; // Restore button text
+                loadingSpinner.style.display = 'none'; // Hide spinner
+            }
+        });
+
+        // Event listener for the "Copy Email Content" button
+        copyEmailContentButton.addEventListener('click', async () => {
+            try {
+                emailContentToCopy.select();
+                document.execCommand('copy');
+                showMessageBox("Email content copied to clipboard!");
+            } catch (err) {
+                console.error('Failed to copy email content: ', err);
+                showMessageBox("Failed to copy email content. Please try again manually.");
+            }
+        });
+
+        // Ensure spinner is hidden on initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadingSpinner.style.display = 'none';
+        });
+    </script>
+
+    <script type="module" src="/navigation.js"></script>    
+</body>
+</html>

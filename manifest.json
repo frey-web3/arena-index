@@ -1,0 +1,27 @@
+{
+  "name": "Arena Index",
+  "short_name": "Arena Index",
+  "description": "Discover Avalanche All in One Place",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#282c34",
+  "theme_color": "#FF8C00",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/maskable_icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

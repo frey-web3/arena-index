@@ -1,0 +1,790 @@
+{
+  "index.html": {
+    "trending tokens": [
+      {
+        "id": "token-1",
+        "name": "Arena Token A",
+        "symbol": "ARNA",
+        "price": 0.00000015,
+        "24hpricechange": 12.5,
+        "mcap": 95000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TTA",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0xB8d7710f7d8349A506b75dD184F05777c82dAd0C"
+      },
+      {
+        "id": "token-2",
+        "name": "GameFi Coin",
+        "symbol": "GFC",
+        "price": 0.00000088,
+        "24hpricechange": -3.2,
+        "mcap": 180000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TTB",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0xCE8E89Bb70AAE88fB3fe4784045a718D00Eb8e21"
+      },
+      {
+        "id": "token-3",
+        "name": "Metaverse Share",
+        "symbol": "MVS",
+        "price": 0.00000210,
+        "24hpricechange": 7.1,
+        "mcap": 250000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TTC",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000003"
+      },
+      {
+        "id": "token-4",
+        "name": "DeFi Yield",
+        "symbol": "DFY",
+        "price": 0.00000045,
+        "24hpricechange": 1.8,
+        "mcap": 60000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TTD",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000004"
+      },
+      {
+        "id": "token-5",
+        "name": "Web3 Connect",
+        "symbol": "W3C",
+        "price": 0.00000105,
+        "24hpricechange": -0.5,
+        "mcap": 110000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TTE",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000005"
+      },
+      {
+        "id": "token-6",
+        "name": "SocialFi Token",
+        "symbol": "SFT",
+        "price": 0.00000072,
+        "24hpricechange": 9.0,
+        "mcap": 85000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TTF",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000006"
+      }
+    ],
+    "trending apps": [
+      {
+        "id": "app-1",
+        "name": "The Arena",
+        "category": "SocialFi",
+        "mcap": 450000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=DS",
+        "tokenAddress": "0xB8d7710f7d8349A506b75dD184F05777c82dAd0C",
+        "url": "#"
+      },
+      {
+        "id": "app-2",
+        "name": "Arena Index",
+        "category": "Aggregator",
+        "mcap": 180000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=NM",
+        "tokenAddress": "0xCE8E89Bb70AAE88fB3fe4784045a718D00Eb8e21",
+        "url": "#"
+      },
+      {
+        "id": "app-3",
+        "name": "JoePegs",
+        "category": "NFT Marketplace",
+        "mcap": 90000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=GH",
+        "tokenAddress": "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+        "url": "#"
+      },
+      {
+        "id": "app-4",
+        "name": "Salvor",
+        "category": "NFT Marketplace",
+        "mcap": 650000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=LP",
+        "tokenAddress": "0xF99516BC189AF00FF8EfFD5A1f2295B67d70a90e",
+        "url": "#"
+      },
+      {
+        "id": "app-5",
+        "name": "AIVA",
+        "category": "AI Tools",
+        "mcap": 45000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=DM",
+        "tokenAddress": "0x09d156F209E0C54D0365D6BB05f8a048649f2542",
+        "url": "#"
+      },
+      {
+        "id": "app-6",
+        "name": "3000",
+        "category": "DeFi",
+        "mcap": 280000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=BX",
+        "tokenAddress": "0x6E6FdF266eF8B0D979D702165373329e638aE670",
+        "url": "#"
+      }
+    ],
+    "trending nfts": [
+      {
+        "id": "nft-1",
+        "name": "Ferdy Frens",
+        "floor": 6.50,
+        "items": 4999,
+        "image": "https://rcdn.salvor.io/images/collection/07fae6fe-e176-4d28-9893-04f7f568b88c.webp",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000007"
+      },
+      {
+        "id": "nft-2",
+        "name": "nochillio",
+        "floor": 57.00,
+        "items": 1334,
+        "image": "https://rcdn.salvor.io/images/collection/c6abf942-04d9-4472-a015-14f0b80e1033.jpeg",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000008"
+      },
+      {
+        "id": "nft-3",
+        "name": "DOKYO",
+        "floor": 7.75,
+        "items": 4795,
+        "image": "https://rcdn.salvor.io/images/collection/5de93f43-0f2a-48f6-8961-ec928f80b220.jpeg",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000009"
+      },
+      {
+        "id": "nft-4",
+        "name": "Ferdy Fish",
+        "floor": 109.69,
+        "items": 300,
+        "image": "https://rcdn.salvor.io/images/collection/bec28c7c-9e7a-41b7-afbc-29ebfe5d1c96.webp",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000010"
+      },
+      {
+        "id": "nft-5",
+        "name": "Koroshi",
+        "floor": 9.65,
+        "items": 2000,
+        "image": "https://rcdn.salvor.io/images/collection/f5f0d66c-b385-4e2e-b80e-04820281143a.gif",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000011"
+      },
+      {
+        "id": "nft-6",
+        "name": "MU Pups",
+        "floor": 5.68,
+        "items": 348,
+        "image": "https://rcdn.salvor.io/images/collection/f81e11e7-916a-4033-9959-dd0e05cf6c2a.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000012"
+      }
+    ],
+    "trending games": [
+      {
+        "id": "game-1",
+        "name": "Off The Grid",
+        "category": "Battle Royal",
+        "platform": "PC, Console",
+        "image": "https://pbs.twimg.com/profile_images/1910358485906157568/UEF16GF7_400x400.jpg",
+        "tokenAddress": "#",
+        "url": "https://www.gamingonavax.com/games/off-the-grid"
+      },
+      {
+        "id": "game-2",
+        "name": "MapleStory",
+        "category": "MMORPG",
+        "platform": "PC, Mobile",
+        "image": "https://pbs.twimg.com/profile_images/1919862178565521408/xBvnFEjo_400x400.jpg",
+        "tokenAddress": "#",
+        "url": "https://www.gamingonavax.com/games/maplestory-universe"
+      },
+      {
+        "id": "game-3",
+        "name": "Chronos World",
+        "category": "RPG",
+        "platform": "PC",
+        "image": "https://pbs.twimg.com/profile_images/1793975110749057024/9V12-eKo_400x400.jpg",
+        "tokenAddress": "#",
+        "url": "https://pbs.twimg.com/profile_images/1919862178565521408/xBvnFEjo_400x400.jpg"
+      },
+      {
+        "id": "game-4",
+        "name": "Domi Online",
+        "category": "MMORPG",
+        "platform": "PC",
+        "image": "https://pbs.twimg.com/profile_images/1452186573475401739/d-Uo3rhM_400x400.jpg",
+        "tokenAddress": "#",
+        "url": "https://www.gamingonavax.com/games/domi-online"
+      },
+      {
+        "id": "game-5",
+        "name": "Providence",
+        "category": "Survival",
+        "platform": "PC",
+        "image": "https://pbs.twimg.com/profile_images/1767894139083821056/809FVc7w_400x400.png",
+        "tokenAddress": "#",
+        "url": "https://www.gamingonavax.com/games/providence"
+      },
+      {
+        "id": "game-6",
+        "name": "Defi Kingdoms",
+        "category": "RPG",
+        "platform": "PC",
+        "image": "https://pbs.twimg.com/profile_images/1501255657974026243/defG5I7h_400x400.jpg",
+        "tokenAddress": "#",
+        "url": "https://www.gamingonavax.com/games/defikingdoms"
+      }
+    ],
+    "trending users": [
+      {
+        "id": "user-1",
+        "name": "Jason Desimone",
+        "role": "CEO The Arena",
+        "followers": 35600,
+        "image": "https://static.starsarena.com/uploads/0cbe7128-2317-bb6b-3513-f9e391e68e741750514390426.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000013"
+      },
+      {
+        "id": "user-2",
+        "name": "EllioTrades",
+        "role": "Founder Blackhole",
+        "followers": 835000,
+        "image": "https://pbs.twimg.com/profile_images/1920987464996466688/HMjgKVGb_400x400.jpg",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000014"
+      },
+      {
+        "id": "user-3",
+        "name": "Jesus Martinez",
+        "role": "AVAX Ambassador",
+        "followers": 271100,
+        "image": "https://static.starsarena.com/uploads/9aeab5de-e233-9f01-6c6a-5ba8c90e16a31751073710536.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000015"
+      },
+      {
+        "id": "user-4",
+        "name": "Emin Gün Sirer",
+        "role": "Founder AVA Labs",
+        "followers": 302800,
+        "image": "https://static.starsarena.com/uploads/0cdcc294-46a7-4e36-93b3-d31709cd79e71714232003325.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000016"
+      },
+      {
+        "id": "user-5",
+        "name": "Tony",
+        "role": "Head BD Pangolin",
+        "followers": 970,
+        "image": "https://static.starsarena.com/uploads/2ba0bd0d-1e84-a3f9-e5c8-11b177f6f5611750076961826.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000017"
+      },
+      {
+        "id": "user-6",
+        "name": "Spicy Rich",
+        "role": "ShopDefiDigs",
+        "followers": 11300,
+        "image": "https://static.starsarena.com/uploads/28867daa-96c3-f8b8-472e-9260ff4877451750727423949.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000018"
+      }
+    ],
+    "latest news": [
+      {
+        "id": "news-1",
+        "title": "Blackhole Reached $10M TVL in 3 Days Post-Launch",
+        "publicationDate": "2025-07-15T10:00:00Z",
+        "readDuration": 1,
+        "url": "https://x.com/BlackholeDex/status/1944771275341156407",
+        "image": "https://pbs.twimg.com/media/Gv03G2BXAAA5gpQ?format=jpg&name=4096x4096"
+      },
+      {
+        "id": "news-2",
+        "title": "Integrity DAO: Vote to Incentivize Blackhole DEX",
+        "publicationDate": "2025-07-15T14:30:00Z",
+        "readDuration": 2,
+        "url": "https://x.com/TheIntegrityDAO/status/1944522379025408054",
+        "image": "https://pbs.twimg.com/media/GvxUyMzXsAA_Lkw?format=jpg&name=medium"
+      },
+      {
+        "id": "news-3",
+        "title": "The Long-Awaited Pangolin V3 Launches on July 21",
+        "publicationDate": "2025-07-15T09:15:00Z",
+        "readDuration": 2,
+        "url": "https://x.com/pangolindex/status/1944779720417284265",
+        "image": "https://pbs.twimg.com/profile_banners/1330644600801865728/1752068584/1080x360"
+      },
+      {
+        "id": "news-4",
+        "title": "The Next Retro9000 Project Snapshot on July 16",
+        "publicationDate": "2025-07-15T11:00:00Z",
+        "readDuration": 1,
+        "url": "https://x.com/AvalancheFDN/status/1944744809094115566",
+        "image": "https://pbs.twimg.com/media/Gt0NhfZXMAAW6_Z?format=jpg&name=medium"
+      },
+      {
+        "id": "news-5",
+        "title": "Blackhole Token Launches July 16 at 1:00 AM UTC",
+        "publicationDate": "2025-07-04T16:00:00Z",
+        "readDuration": 1,
+        "url": "https://x.com/BlackholeDex/status/1944807956907700515",
+        "image": "https://pbs.twimg.com/media/Gv1Xv7dWMAEnncV?format=jpg&name=medium"
+      },
+      {
+        "id": "news-6",
+        "title": "The Arena Introduces Pro Feature for Token Launcher",
+        "publicationDate": "2025-07-07T10:45:00Z",
+        "readDuration": 5,
+        "url": "https://x.com/TheArenaApp/status/1942663090312548463",
+        "image": "https://pbs.twimg.com/profile_banners/1655607241595056128/1701988515/1080x360"
+      }
+    ],
+    "latest videos": [
+      {
+        "id": "video-1",
+        "title": "How to Create an L1 With AvaCloud in Less Than A Minute",
+        "publicationDate": "2025-07-14T08:30:00Z",
+        "videoDuration": "1:10",
+        "url": "https://www.youtube.com/watch?v=jiTCOizCV-E&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/jiTCOizCV-E/mqdefault.jpg"
+      },
+      {
+        "id": "video-2",
+        "title": "Avalanche Summit London: The Experience",
+        "publicationDate": "2025-07-25T07:30:00Z",
+        "videoDuration": "2:48",
+        "url": "https://www.youtube.com/watch?v=YkjOtM4Ljxc&t=35s&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/YkjOtM4Ljxc/mqdefault.jpg"
+      },
+      {
+        "id": "video-3",
+        "title": "Avalanche Innovation House UK Recap",
+        "publicationDate": "2025-06-11T06:30:00Z",
+        "videoDuration": "4:28",
+        "url": "https://www.youtube.com/watch?v=5GNtkDFE57o&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/5GNtkDFE57o/mqdefault.jpg"
+      },
+      {
+        "id": "video-4",
+        "title": "Keynote from Emin Gün Sirer | Avalanche Summit London",
+        "publicationDate": "2025-06-03T10:00:00Z",
+        "videoDuration": "26:00",
+        "url": "https://www.youtube.com/watch?v=AAaoqAyd-Gk&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/AAaoqAyd-Gk/mqdefault.jpg"
+      },
+      {
+        "id": "video-5",
+        "title": "Avalanche Summit LATAM Official Recap",
+        "publicationDate": "2025-01-16T12:00:00Z",
+        "videoDuration": "3:05",
+        "url": "https://www.youtube.com/watch?v=PqEku1Yw5ko&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/PqEku1Yw5ko/mqdefault.jpg"
+      },
+      {
+        "id": "video-6",
+        "title": "Welcome to Avalanche9000 | Avalanche Summit LATAM",
+        "publicationDate": "2024-11-05T12:00:00Z",
+        "videoDuration": "41:06",
+        "url": "https://www.youtube.com/watch?v=jz7eVVkJ9WI&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/jz7eVVkJ9WI/mqdefault.jpg"
+      }
+    ]
+  },
+  "discover.html": {
+    "featured tokens": [
+      {
+        "id": "token-f1",
+        "name": "Token Featured 1",
+        "symbol": "TF1",
+        "price": 0.00000123,
+        "24hpricechange": 5.2,
+        "mcap": 120000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TF1",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0xB8d7710f7d8349A506b75dD184F05777c82dAd0C"
+      },
+      {
+        "id": "token-f2",
+        "name": "Token Featured 2",
+        "symbol": "TF2",
+        "price": 0.00000087,
+        "24hpricechange": -2.1,
+        "mcap": 80000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TF2",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0xce8e89bb70aae88fb3fe4784045a718d00eb8e21"
+      },
+      {
+        "id": "token-f3",
+        "name": "Token Featured 3",
+        "symbol": "TF3",
+        "price": 0.00000345,
+        "24hpricechange": 10.5,
+        "mcap": 250000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TF3",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0x6F43fF77A9C0Cf552b5b653268fBFe26A052429b"
+      },
+      {
+        "id": "token-f4",
+        "name": "Token Featured 4",
+        "symbol": "TF4",
+        "price": 0.00000055,
+        "24hpricechange": -0.8,
+        "mcap": 40000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TF4",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0x5DDc8d968a94cf95CfeB7379F8372d858B9C797d"
+      },
+      {
+        "id": "token-f5",
+        "name": "Token Featured 5",
+        "symbol": "TF5",
+        "price": 0.00000210,
+        "24hpricechange": 7.8,
+        "mcap": 180000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TF5",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0x34a528Da3b2EA5c6Ad1796Eba756445D1299a577"
+      },
+      {
+        "id": "token-f6",
+        "name": "Token Featured 6",
+        "symbol": "TF6",
+        "price": 0.00000099,
+        "24hpricechange": 1.5,
+        "mcap": 95000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=TF6",
+        "dexscreenerUrl": "#",
+        "tokenAddress": "0xAcFb898Cff266E53278cC0124fC2C7C94C8cB9a5"
+      }
+    ],
+    "featured apps": [
+      {
+        "id": "app-f1",
+        "name": "The Arena",
+        "category": "SocialFi",
+        "mcap": 450000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=DS",
+        "tokenAddress": "0xB8d7710f7d8349A506b75dD184F05777c82dAd0C",
+        "url": "#"
+      },
+      {
+        "id": "app-f2",
+        "name": "Arena Index",
+        "category": "Aggregator",
+        "mcap": 180000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=NM",
+        "tokenAddress": "0xCE8E89Bb70AAE88fB3fe4784045a718D00Eb8e21",
+        "url": "#"
+      },
+      {
+        "id": "app-f3",
+        "name": "JoePegs",
+        "category": "NFT Marketplace",
+        "mcap": 90000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=GH",
+        "tokenAddress": "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+        "url": "#"
+      },
+      {
+        "id": "app-f4",
+        "name": "Salvor",
+        "category": "NFT Marketplace",
+        "mcap": 650000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=LP",
+        "tokenAddress": "0xF99516BC189AF00FF8EfFD5A1f2295B67d70a90e",
+        "url": "#"
+      },
+      {
+        "id": "app-f5",
+        "name": "AIVA",
+        "category": "AI Tools",
+        "mcap": 45000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=DM",
+        "tokenAddress": "0x09d156F209E0C54D0365D6BB05f8a048649f2542",
+        "url": "#"
+      },
+      {
+        "id": "app-f6",
+        "name": "3000",
+        "category": "DeFi",
+        "mcap": 280000000,
+        "image": "https://placehold.co/100x100/374151/d1d5db?text=BX",
+        "tokenAddress": "0x6E6FdF266eF8B0D979D702165373329e638aE670",
+        "url": "#"
+      }
+    ],
+    "featured nfts": [
+      {
+        "id": "nft-f1",
+        "name": "Ferdy Frens",
+        "floor": 6.50,
+        "items": 4999,
+        "image": "https://rcdn.salvor.io/images/collection/07fae6fe-e176-4d28-9893-04f7f568b88c.webp",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000007"
+      },
+      {
+        "id": "nft-f2",
+        "name": "nochillio",
+        "floor": 57.00,
+        "items": 1334,
+        "image": "https://rcdn.salvor.io/images/collection/c6abf942-04d9-4472-a015-14f0b80e1033.jpeg",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000008"
+      },
+      {
+        "id": "nft-f3",
+        "name": "DOKYO",
+        "floor": 7.75,
+        "items": 4795,
+        "image": "https://rcdn.salvor.io/images/collection/5de93f43-0f2a-48f6-8961-ec928f80b220.jpeg",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000009"
+      },
+      {
+        "id": "nft-f4",
+        "name": "Ferdy Fish",
+        "floor": 109.69,
+        "items": 300,
+        "image": "https://rcdn.salvor.io/images/collection/bec28c7c-9e7a-41b7-afbc-29ebfe5d1c96.webp",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000010"
+      },
+      {
+        "id": "nft-f5",
+        "name": "Koroshi",
+        "floor": 9.65,
+        "items": 2000,
+        "image": "https://rcdn.salvor.io/images/collection/f5f0d66c-b385-4e2e-b80e-04820281143a.gif",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000011"
+      },
+      {
+        "id": "nft-f6",
+        "name": "MU Pups",
+        "floor": 5.68,
+        "items": 348,
+        "image": "https://rcdn.salvor.io/images/collection/f81e11e7-916a-4033-9959-dd0e05cf6c2a.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000012"
+      }
+    ],
+    "featured games": [
+       {
+        "id": "game-f1",
+        "name": "Off The Grid",
+        "category": "Battle Royal",
+        "platform": "PC, Console",
+        "image": "https://pbs.twimg.com/profile_images/1910358485906157568/UEF16GF7_400x400.jpg",
+        "tokenAddress": "#",
+        "url": "https://www.gamingonavax.com/games/off-the-grid"
+      },
+      {
+        "id": "game-f2",
+        "name": "MapleStory",
+        "category": "MMORPG",
+        "platform": "PC, Mobile",
+        "image": "https://pbs.twimg.com/profile_images/1919862178565521408/xBvnFEjo_400x400.jpg",
+        "tokenAddress": "#",
+        "url": "https://www.gamingonavax.com/games/maplestory-universe"
+      },
+      {
+        "id": "game-f3",
+        "name": "Chronos World",
+        "category": "RPG",
+        "platform": "PC",
+        "image": "https://pbs.twimg.com/profile_images/1793975110749057024/9V12-eKo_400x400.jpg",
+        "tokenAddress": "#",
+        "url": "https://pbs.twimg.com/profile_images/1919862178565521408/xBvnFEjo_400x400.jpg"
+      },
+      {
+        "id": "game-f4",
+        "name": "Domi Online",
+        "category": "MMORPG",
+        "platform": "PC",
+        "image": "https://pbs.twimg.com/profile_images/1452186573475401739/d-Uo3rhM_400x400.jpg",
+        "tokenAddress": "#",
+        "url": "https://www.gamingonavax.com/games/domi-online"
+      },
+      {
+        "id": "game-f5",
+        "name": "Providence",
+        "category": "Survival",
+        "platform": "PC",
+        "image": "https://pbs.twimg.com/profile_images/1767894139083821056/809FVc7w_400x400.png",
+        "tokenAddress": "#",
+        "url": "https://www.gamingonavax.com/games/providence"
+      },
+      {
+        "id": "game-f6",
+        "name": "Defi Kingdoms",
+        "category": "RPG",
+        "platform": "PC",
+        "image": "https://pbs.twimg.com/profile_images/1501255657974026243/defG5I7h_400x400.jpg",
+        "tokenAddress": "#",
+        "url": "https://www.gamingonavax.com/games/defikingdoms"
+      }
+    ],
+    "featured users": [
+      {
+        "id": "user-f1",
+        "name": "Emin Gün Sirer",
+        "role": "Founder AVA Labs",
+        "followers": 302800,
+        "image": "https://static.starsarena.com/uploads/0cdcc294-46a7-4e36-93b3-d31709cd79e71714232003325.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000031"
+      },
+      {
+        "id": "user-f2",
+        "name": "Jason Desimone",
+        "role": "CEO The Arena",
+        "followers": 35700,
+        "image": "https://static.starsarena.com/uploads/0cbe7128-2317-bb6b-3513-f9e391e68e741750514390426.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000032"
+      },
+      {
+        "id": "user-f3",
+        "name": "EllioTrades",
+        "role": "Founder Blackhole",
+        "followers": 835200,
+        "image": "https://pbs.twimg.com/profile_images/1920987464996466688/HMjgKVGb_400x400.jpg",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000033"
+      },
+      {
+        "id": "user-f4",
+        "name": "Jesus Martinez",
+        "role": "AVAX Ambassador",
+        "followers": 271100,
+        "image": "https://static.starsarena.com/uploads/9aeab5de-e233-9f01-6c6a-5ba8c90e16a31751073710536.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000034"
+      },
+      {
+        "id": "user-f5",
+        "name": "CryptoLaw",
+        "role": "Integrity DAO",
+        "followers": 1100000,
+        "image": "https://static.starsarena.com/uploads/53ea195f-0bd4-965e-bd3b-cc85b958a00e1746578124005.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000035"
+      },
+      {
+        "id": "user-f6",
+        "name": "pythonomics",
+        "role": "Founder NoChill",
+        "followers": 5093,
+        "image": "https://static.starsarena.com/uploads/6c432a85-86ff-a41f-f272-3911cfa638501740617051579.png",
+        "url": "#",
+        "tokenAddress": "0x0000000000000000000000000000000000000036"
+      }
+    ],
+    "featured news": [
+      {
+        "id": "news-f1",
+        "title": "Blackhole Reached $10M TVL in 3 Days Post-Launch",
+        "publicationDate": "2025-07-15T08:00:00Z",
+        "readDuration": 1,
+        "url": "https://x.com/BlackholeDex/status/1944771275341156407",
+        "image": "https://pbs.twimg.com/media/Gv03G2BXAAA5gpQ?format=jpg&name=4096x4096"
+      },
+      {
+        "id": "news-f2",
+        "title": "Integrity DAO: Vote to Incentivize Blackhole DEX",
+        "publicationDate": "2025-07-15T12:00:00Z",
+        "readDuration": 2,
+        "url": "https://x.com/BlackholeDex/status/1944771275341156407",
+        "image": "https://pbs.twimg.com/media/GvxUyMzXsAA_Lkw?format=jpg&name=medium"
+      },
+      {
+        "id": "news-f3",
+        "title": "The Long-Awaited Pangolin V3 Launches on July 21",
+        "publicationDate": "2025-07-15T09:15:00Z",
+        "readDuration": 2,
+        "url": "https://x.com/pangolindex/status/1944779720417284265",
+        "image": "https://pbs.twimg.com/profile_banners/1330644600801865728/1752068584/1080x360"
+      },
+      {
+        "id": "news-f4",
+        "title": "The Next Retro9000 Project Snapshot on July 16",
+        "publicationDate": "2025-07-15T11:00:00Z",
+        "readDuration": 1,
+        "url": "https://x.com/AvalancheFDN/status/1944744809094115566",
+        "image": "https://pbs.twimg.com/media/Gt0NhfZXMAAW6_Z?format=jpg&name=medium"
+      },
+      {
+        "id": "news-f5",
+        "title": "Blackhole Token Launches July 16 at 1:00 AM UTC",
+        "publicationDate": "2025-07-04T16:00:00Z",
+        "readDuration": 1,
+        "url": "https://x.com/BlackholeDex/status/1944807956907700515",
+        "image": "https://pbs.twimg.com/media/Gv1Xv7dWMAEnncV?format=jpg&name=medium"
+      },
+      {
+        "id": "news-f6",
+        "title": "The Arena Introduces Pro Feature for Token Launcher",
+        "publicationDate": "2025-07-07T10:45:00Z",
+        "readDuration": 5,
+        "url": "https://x.com/TheArenaApp/status/1942663090312548463",
+        "image": "https://pbs.twimg.com/profile_banners/1655607241595056128/1701988515/1080x360"
+      }
+    ],
+    "featured videos": [
+       {
+        "id": "video-f1",
+        "title": "How to Create an L1 With AvaCloud in Less Than A Minute",
+        "publicationDate": "2025-07-14T08:30:00Z",
+        "videoDuration": "1:10",
+        "url": "https://www.youtube.com/watch?v=jiTCOizCV-E&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/jiTCOizCV-E/mqdefault.jpg"
+      },
+      {
+        "id": "video-f2",
+        "title": "Avalanche Summit London: The Experience",
+        "publicationDate": "2025-07-25T07:30:00Z",
+        "videoDuration": "2:48",
+        "url": "https://www.youtube.com/watch?v=YkjOtM4Ljxc&t=35s&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/YkjOtM4Ljxc/mqdefault.jpg"
+      },
+      {
+        "id": "video-f3",
+        "title": "Avalanche Innovation House UK Recap",
+        "publicationDate": "2025-06-11T06:30:00Z",
+        "videoDuration": "4:28",
+        "url": "https://www.youtube.com/watch?v=5GNtkDFE57o&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/5GNtkDFE57o/mqdefault.jpg"
+      },
+      {
+        "id": "video-f4",
+        "title": "Keynote from Emin Gün Sirer | Avalanche Summit London",
+        "publicationDate": "2025-06-03T10:00:00Z",
+        "videoDuration": "26:00",
+        "url": "https://www.youtube.com/watch?v=AAaoqAyd-Gk&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/AAaoqAyd-Gk/mqdefault.jpg"
+      },
+      {
+        "id": "video-f5",
+        "title": "Avalanche Summit LATAM Official Recap",
+        "publicationDate": "2025-01-16T12:00:00Z",
+        "videoDuration": "3:05",
+        "url": "https://www.youtube.com/watch?v=PqEku1Yw5ko&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/PqEku1Yw5ko/mqdefault.jpg"
+      },
+      {
+        "id": "video-f6",
+        "title": "Welcome to Avalanche9000 | Avalanche Summit LATAM",
+        "publicationDate": "2024-11-05T12:00:00Z",
+        "videoDuration": "41:06",
+        "url": "https://www.youtube.com/watch?v=jz7eVVkJ9WI&ab_channel=Avalanche",
+        "image": "https://img.youtube.com/vi/jz7eVVkJ9WI/mqdefault.jpg"
+      }
+    ]
+  }
+}

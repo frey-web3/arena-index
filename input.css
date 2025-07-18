@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Set monospace font globally and deep black theme color */
+body {
+    font-family: 'monospace', sans-serif;
+    background-color: #000000; /* Deep black background color */
+    color: #e2e8f0; /* Light text color */
+    /* Remove padding-top from body; fixed elements will handle safe area */
+    padding-bottom: env(safe-area-inset-bottom); /* Keep bottom padding for home indicator */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+/* Styling for the main scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Vertical scrollbar width */
+    height: 8px; /* Horizontal scrollbar height */
+}
+::-webkit-scrollbar-track {
+    background: #1a1a1a; /* Darker scrollbar track color */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #e84142; /* Red theme color for the main scrollbar */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #d43c3c; /* Darker red on hover for the main scrollbar */
+}
+
+/* Hide scrollbar only for horizontally scrollable content divs */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Keyframes for favorite icon sparkle animation */
+@keyframes favorite-spark {
+    0% { transform: scale(1); opacity: 1;}
+    50% { transform: scale(1.3); opacity: 0.7;} /* Slightly larger and less opaque */
+    100% { transform: scale(1); opacity: 1;}
+}
+/* Class to apply sparkle animation */
+.favorite-spark-active {
+    animation: favorite-spark 0.3s ease-out;
+}
+
+/* Custom scrollbar for favorites and search results with red theme */
+.custom-scrollbar-red::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.custom-scrollbar-red::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+.custom-scrollbar-red::-webkit-scrollbar-thumb {
+    background: #e84142; /* Red theme color */
+    border-radius: 10px;
+}
+.custom-scrollbar-red::-webkit-scrollbar-thumb:hover {
+    background: #d43c3c; /* Darker red on hover */
+}
+
+/* Adjust spacer for fixed navigation to account for safe area top */
+/* This spacer pushes the main content down by the nav's height including the safe area */
+.h-20.w-full.md\:h-20 {
+    height: calc(5rem + env(safe-area-inset-top)); /* Adjust h-20 (5rem) + safe area */
+}
+
+/* CSS for the red gradient overlay */
+.red-gradient-overlay {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%; /* Adjust as needed for the spread of the gradient */
+    height: 100%; /* Adjust as needed for the spread of the gradient */
+    background: radial-gradient(circle at bottom right, rgba(232, 65, 66, 0.2), transparent 50%);
+    pointer-events: none; /* Allows clicks to pass through to the card content */
+    border-radius: inherit; /* Inherit border-radius from parent */
+    z-index: 0; /* Position below content but above background */
+}
+
+/* For skeleton loading states */
+.red-gradient-overlay-skeleton {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at bottom right, rgba(232, 65, 66, 0.05), transparent 50%); /* Lighter for skeleton */
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 0;
+}
+
+/* Theme red color */
+.bg-theme-red {
+    background-color: #e84142;
+}
+
+/* Styling for video play icon overlay */
+.video-thumbnail-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.play-icon-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem; /* Adjust size as needed */
+    color: rgba(255, 255, 255, 0.8); /* White with some transparency */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional shadow for better visibility */
+    pointer-events: none; /* Allows clicks to pass through to the parent link */
+}
+
+/* Styles to make the calendar icon white */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Inverts the colors, turning dark to light */
+}
+
+/* Custom styling for the category select dropdown arrow */
+.custom-select-arrow {
+    -webkit-appearance: none; /* Remove default arrow for Chrome, Safari, Edge */
+    -moz-appearance: none;    /* Remove default arrow for Firefox */
+    appearance: none;         /* Remove default arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center; /* Position the arrow 0.75rem from the right, centered vertically */
+    background-size: 1.25rem; /* Size of the arrow */
+    padding-right: 2.5rem; /* Ensure enough space for the custom arrow to avoid text overlap */
+}
